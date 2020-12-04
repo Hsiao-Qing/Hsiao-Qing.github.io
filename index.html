@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <!-- 表單驗證 -->
+    <script src='//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js'></script>
+    <!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"> -->
+    <!-- 圖形驗證碼 -->
+    <link rel="icon" type="image/png" href="favicon.ico">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <title>國有租地線上申請續租便民服務網</title>
+</head>
+
+<body>
+    <div id="wrapper">
+        <header>
+            <a class="nav-link" href="index.html">
+                <img src="img/logo_l.png" alt="">
+            </a>
+
+            <button class="burger btn btn3"><i class="fas fa-bars fa-lg"></i></button>
+        </header>
+
+        <div class="row margin-0">
+            <!-- 選單開始 -->
+            <div class="col-lg-2 col-md-12 menu padding-0">
+                <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                    <a class="nav-link active" id="v-pills-service-tab" data-toggle="pill" href="#v-pills-service"
+                        role="tab" aria-controls="v-pills-service" aria-selected="true">服務說明</a>
+                    <a class="nav-link" id="v-pills-bid-tab" data-toggle="pill" href="#v-pills-bid" role="tab"
+                        aria-controls="v-pills-bid" aria-selected="false">線上申辦</a>
+                    <a class="nav-link" id="v-pills-progress-tab" data-toggle="pill" href="#v-pills-progress" role="tab"
+                        aria-controls="v-pills-progress" aria-selected="false">查詢進度</a>
+                    <a class="nav-link" id="v-pills-qa-tab" data-toggle="pill" href="#v-pills-qa" role="tab"
+                        aria-controls="v-pills-qa" aria-selected="false">常見問題</a>
+                </div>
+            </div>
+            <!-- 內容開始 -->
+            <div class="col-lg-10 col-md-12 main padding-0">
+                <div class="tab-content" id="v-pills-tabContent">
+                    <!-- 服務說明 -->
+                    <div class="tab-pane fade show active" id="v-pills-service" role="tabpanel"
+                        aria-labelledby="v-pills-service-tab">
+                        <img src="img/service.png" alt="" class="img-responsive">
+                        <div class="container-custom4">
+                            <h4><b>服務說明</b></h4>
+                            <span>1.網路申請僅限續租，轉讓、繼承因涉及權利移轉請至相關工作站臨櫃辦理。<br>
+                                2.網路申請續租本處將以簡訊通知受理、補件、會同現場勘查日期、契約書用印日期及寄發契約書通知等訊息，請務必留存有效行動電話號碼。<br>
+                                3.網路申請續租是為節省台端洽公往返時間，申請書仍需用印及繳交契約書正本，請於會勘當日務必攜帶契約書正本、身分證及原契約書蓋用
+                                之印章到工作站辦理續租相關書件用印(印章遺失，承租人本人親自領勘，屆時以攜帶之印章申請變更契約書印章；非本人領勘，委託人請攜
+                                帶承租人之印鑑章及印鑑證明書1份)。<br>
+                                4.會勘非承租人本人，委託人請攜帶身分證及印章簽立會勘委託書。<br>
+                                5.網路申請續租流程與臨櫃辦理續租流程相同。</span>
+                        </div>
+                        <div class="footer">
+                            Copyright © 2020 行政院農業委員會林務局 版權所有
+                        </div>
+                    </div>
+                    <!-- 線上申辦 -->
+                    <div class="tab-pane fade" id="v-pills-bid" role="tabpanel" aria-labelledby="v-pills-bid-tab">
+                        <div id="step1">
+                            <div class="container-custom1">
+                                <h4 style="text-align: center;margin: 2rem auto;"><b>線上申辦</b></h4>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: 20%" aria-valuenow="20"
+                                        aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <div class="status d-flex mt-2">
+                                    <b>1.查詢</b>
+                                    <span>2.選擇</span>
+                                    <span>3.填寫聯絡資訊</span>
+                                    <span>4.確認資料</span>
+                                    <span>5.送出申請</span>
+                                </div>
+                                <div class="d-flex mt-5 mb-3">
+                                    <div class="rect"></div>
+                                    <h5>步驟一 : 請輸入契約基本資料</h5>
+                                </div>
+                            </div>
+                            <div class="container-custom2">
+                                <form id="register_form" role="form" data-toggle="validator">
+                                    <div class="form-group">
+                                        <label>*管理處</label>
+                                        <select name="management" id="management" class="form-control form-control-sm"
+                                            required="required">
+                                            <option value="">請選擇管理處</option>
+                                            <option value="">羅東</option>
+                                            <option value="">新竹</option>
+                                            <option value="">東勢</option>
+                                            <option value="">南投</option>
+                                            <option value="">嘉義</option>
+                                            <option value="">屏東</option>
+                                            <option value="">臺東</option>
+                                            <option value="">花蓮</option>
+                                        </select>
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>*承租代表人</label>
+                                        <input type="text" class="form-control form-control-sm" id="name1" name="name1"
+                                            placeholder="請輸入契約承租代表人的姓名" required="required">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>*身分證字號</label>
+                                        <input type="text" class="form-control form-control-sm" id="idNumber1"
+                                            name="idNumber1" placeholder="請輸入契約承租代表人的身分證字號" required="required">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>*契約書編號</label>
+                                        <input type="text" class="form-control form-control-sm" id="contract"
+                                            name="contract" placeholder="請輸入契約承租代表人的契約書編號" required="required">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                    <div class="form-group mb-5">
+                                        <label>*請輸入驗證碼</label>
+                                        <div id="captcha">
+                                            <div class="d-flex">
+                                                <input type="text"
+                                                    class="form-control form-control-sm user-text btn-common"
+                                                    id="verification1" name="verification1" placeholder=""
+                                                    required="required">
+                                                <button class="validate btn-common btn btn2 ml-1">check</button>
+                                                <button class="refresh btn-common btn btn2 ml-1">
+                                                    <i class="fas fa-undo-alt"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <p class="wrong info">驗證碼錯誤，請重新輸入!</p>
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="container-custom2">
+                                <div class="mt-5 clearfix">
+                                    <button type="submit" class="btn btn1" onclick="cleanstring()">清除</button>
+                                    <button type="submit" class="btn btn1" style="float: right;"
+                                        onclick="gonext('step2')">下一步</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="step2">
+                            <div class="container-custom1">
+                                <h4 style="text-align: center;margin: 2rem auto;"><b>線上申辦</b></h4>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: 40%" aria-valuenow="40"
+                                        aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <div class="status d-flex mt-2">
+                                    <b>1.查詢</b>
+                                    <b>2.選擇</b>
+                                    <span>3.填寫聯絡資訊</span>
+                                    <span>4.確認資料</span>
+                                    <span>5.送出申請</span>
+                                </div>
+                            </div>
+                            <div class="container-custom3">
+                                <div class="d-flex mt-5 mb-3">
+                                    <div class="rect"></div>
+                                    <h5>步驟二 : 請選擇您要申請的契約</h5>
+                                </div>
+
+                                <hr style="margin:10px 0;">
+                                <div class="list form-row">
+                                    <div class="col-lg-1 col-md-12"><input type="checkbox" class="checkbox"
+                                            id="exampleCheck1"></div>
+                                    <div class="col-lg-4 col-md-6"><b>契約書編號:</b>4100M9999J9999</div>
+                                    <div class="col-lg-4 col-md-6"><b>承租起迄:</b>104/12/27 ~ 109/04/02</div>
+                                    <div class="col-lg-3 col-md-6"><b>承租面積(公頃):</b>0.33</div>
+                                    <div class="col-lg-1 col-md-12"></div>
+                                    <div class="col-lg-4 col-md-6"><b>租地位置:</b>丹大事業區103林班等1筆</div>
+                                    <div class="col-lg-4 col-md-6 d-flex">
+                                        <b>申請類型:</b>
+                                        <select name="management" id="management" class="form-control form-control-sm"
+                                            style="width: 200px;">
+                                            <option value="">請選擇申請類型</option>
+                                            <option value="">續約</option>
+                                            <option value="">轉讓</option>
+                                            <option value="">續約併辦轉讓</option>
+                                        </select></div>
+                                    <div class="col-lg-3 col-md-6"><b>備註:</b></div>
+                                </div>
+                                <hr style="margin:10px 0;">
+                                <div class="list form-row">
+                                    <div class="col-lg-1 col-md-12"><input type="checkbox" class="checkbox"
+                                            id="exampleCheck1"></div>
+                                    <div class="col-lg-4 col-md-6"><b>契約書編號:</b>4100M9999J9999</div>
+                                    <div class="col-lg-4 col-md-6"><b>承租起迄:</b>104/12/27 ~ 109/04/02</div>
+                                    <div class="col-lg-3 col-md-6"><b>承租面積(公頃):</b>0.33</div>
+                                    <div class="col-lg-1 col-md-12"></div>
+                                    <div class="col-lg-4 col-md-6"><b>租地位置:</b>丹大事業區103林班等1筆</div>
+                                    <div class="col-lg-4 col-md-6 d-flex">
+                                        <b>申請類型:</b>
+                                        <select name="management" id="management" class="form-control form-control-sm"
+                                            style="width: 200px;">
+                                            <option value="">請選擇申請類型</option>
+                                            <option value="">續約</option>
+                                            <option value="">轉讓</option>
+                                            <option value="">續約併辦轉讓</option>
+                                        </select></div>
+                                    <div class="col-lg-3 col-md-6"><b>備註:</b></div>
+                                </div>
+                            </div>
+                            <div class="container-custom2">
+                                <div class="mt-5 clearfix">
+                                    <button type="submit" class="btn btn1" onclick="gonext('step1')">上一步</button>
+                                    <button type="submit" class="btn btn1" style="float: right;"
+                                        onclick="gonext('step3')">下一步</button></div>
+                            </div>
+                        </div>
+                        <div id="step3">
+                            <div class="container-custom1">
+                                <h4 style="text-align: center;margin: 2rem auto;"><b>線上申辦</b></h4>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: 60%" aria-valuenow="60"
+                                        aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <div class="status d-flex mt-2">
+                                    <b>1.查詢</b>
+                                    <b>2.選擇</b>
+                                    <b>3.填寫聯絡資訊</b>
+                                    <span>4.確認資料</span>
+                                    <span>5.送出申請</span>
+                                </div>
+                                <div class="d-flex mt-5 mb-3">
+                                    <div class="rect"></div>
+                                    <h5>步驟三 : 請填寫承租代表人的聯絡資料</h5>
+                                </div>
+                            </div>
+                            <div class="container-custom2">
+                                <form id="register_form" role="form" data-toggle="validator">
+                                    <div class="form-group">
+                                        <label>*承租人姓名</label>
+                                        <input type="text" class="form-control form-control-sm" id="name"
+                                            placeholder="請輸入契約承租代表人的姓名" required="required">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>連絡電話</label>
+                                        <input type="text" class="form-control form-control-sm" id="contact"
+                                            placeholder="請輸入契約承租代表人的連絡電話">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>*行動電話</label>
+                                        <input type="text" class="form-control form-control-sm" id="mobile"
+                                            placeholder="請輸入契約承租代表人的行動電話" required="required">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                    <form action="" method="post" name="same">
+                                        <div class="form-group">
+                                            <label>*戶籍地址</label>
+                                            <input type="text" class="form-control form-control-sm" id="domicile"
+                                                name="domicile" placeholder="請輸入契約承租代表人的戶籍地址" required="required">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>*公文寄送地址</label>
+                                            <div class="d-flex">
+                                                <input type="text" class="form-control form-control-sm" id="delivery"
+                                                    name="delivery" placeholder="請輸入契約承租代表人的公文寄送地址" required="required">
+                                                <button type="button" class="btn btn2 ml-2" id="ApplicantSameAs"
+                                                    onclick="document.same.delivery.value=document.same.domicile.value">同上</button>
+                                            </div>
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </form>
+                                    <div class="form-group">
+                                        <label>備註</label>
+                                        <input type="text" class="form-control form-control-sm" id="remark"
+                                            placeholder="其他說明">
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="container-custom2">
+                                <div class="mt-5 clearfix">
+                                    <button type="submit" class="btn btn1" onclick="gonext('step2')">上一步</button>
+                                    <button type="submit" class="btn btn1" style="float: right;"
+                                        onclick="gonext('step4')">下一步</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="step4">
+                            <div class="container-custom1">
+                                <h4 style="text-align: center;margin: 2rem auto;"><b>線上申辦</b></h4>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="80"
+                                        aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <div class="status d-flex mt-2">
+                                    <b>1.查詢</b>
+                                    <b>2.選擇</b>
+                                    <b>3.填寫聯絡資訊</b>
+                                    <b>4.確認資料</b>
+                                    <span>5.送出申請</span>
+                                </div>
+                            </div>
+                            <div class="container-custom3">
+                                <div class="d-flex mt-5 mb-3">
+                                    <div class="rect"></div>
+                                    <h5>步驟四 : 請確認您要申請的資料如下</h5>
+                                </div>
+                                <div class="form-row list_title ml-2 my-3">
+                                    <div class="rect1"></div>
+                                    <span>申請清單</span>
+                                </div>
+                                <hr style="margin:10px 0;">
+                                <div class="list form-row">
+                                    <div class="col-lg-4 col-md-6"><b>契約書編號:</b>4100M9999J9999</div>
+                                    <div class="col-lg-4 col-md-6"><b>承租起迄:</b>104/12/27 ~ 109/04/02</div>
+                                    <div class="col-lg-4 col-md-6"><b>承租面積(公頃):</b>0.33</div>
+                                    <div class="col-lg-4 col-md-6"><b>租地位置:</b>丹大事業區103林班等1筆</div>
+                                    <div class="col-lg-4 col-md-6 d-flex"><b>申請類型:</b>續約併辦轉讓</div>
+                                    <div class="col-lg-4 col-md-6"><b>備註:</b></div>
+                                </div>
+                                <div class="form-row list_title ml-2 mt-3 mb-2">
+                                    <div class="rect1"></div>
+                                    <span>承租代表人聯絡資料</span>
+                                </div>
+                                <div class="form-row ml-4">
+                                    <div class="col-lg-4 col-md-12">承租人姓名：測試</div>
+                                    <div class="col-lg-4 col-md-12">聯絡電話：04-22557003</div>
+                                    <div class="col-lg-4 col-md-12">行動電話：0939048667</div>
+                                    <div class="col-lg-12 col-md-12">戶籍地址：台中市后里區中興街11號</div>
+                                    <div class="col-lg-12 col-md-12">公文寄送地址：台中市后里區中興街11號</div>
+                                    <div class="col-lg-12 col-md-12">備註：</div>
+                                </div>
+                            </div>
+                            <div class="container-custom2">
+                                <div class="mt-5 clearfix">
+                                    <button type="submit" class="btn btn1" onclick="gonext('step3')">上一步</button>
+                                    <button type="submit" class="btn btn1" style="float: right;"
+                                        onclick="gonext('step5')">下一步</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="step5">
+                            <div class="container-custom1">
+                                <h4 style="text-align: center;margin: 2rem auto;"><b>線上申辦</b></h4>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100"
+                                        aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <div class="status d-flex mt-2">
+                                    <b>1.查詢</b>
+                                    <b>2.選擇</b>
+                                    <b>3.填寫聯絡資訊</b>
+                                    <b>4.確認資料</b>
+                                    <b>5.送出申請</b>
+                                </div>
+                            </div>
+                            <div class="container-custom3">
+                                <div class="d-flex mt-5 mb-3">
+                                    <div class="rect"></div>
+                                    <h5>步驟五 : 您已完成線上申請程序</h5>
+                                </div>
+                                <div class="form-row list_title ml-2 my-3">
+                                    <div class="rect1"></div>
+                                    <span>申請清單</span>
+                                </div>
+                                <hr style="margin:10px 0;">
+                                <div class="list form-row">
+                                    <div class="col-lg-4 col-md-6"><b>契約書編號:</b>4100M9999J9999</div>
+                                    <div class="col-lg-4 col-md-6"><b>申請單號:</b>00001</div>
+                                    <div class="col-lg-4 col-md-6"><b>承租起迄:</b>104/12/27 ~ 109/04/02</div>
+                                    <div class="col-lg-4 col-md-6"><b>承租面積(公頃):</b>0.33</div>
+                                    <div class="col-lg-4 col-md-6"><b>租地位置:</b>丹大事業區103林班等1筆</div>
+                                    <div class="col-lg-4 col-md-6 d-flex"><b>申請類型:</b>續約併辦轉讓</div>
+                                    <div class="col-lg-4 col-md-6"><b>備註:</b></div>
+                                </div>
+                                <div class="form-row list_title ml-2 mt-3 mb-2">
+                                    <div class="rect1"></div>
+                                    <span>注意事項</span>
+                                </div>
+                                <div class="ml-4 my-1">1.系統將依照申請進度發送簡訊，若有任何問題，您可以洽詢下列單位 :</div>
+                                <div class="ml-5 my-1">(1).台中工作站：(04)2281-4026</div>
+                                <div class="ml-4 my-1">2.提醒您前往臨櫃辦理所需之文件 :</div>
+                                <div class="ml-5 my-1">(1).續約 - a文件、b文件、c文件</div>
+                                <div class="ml-5 my-1">(2).轉讓 - a文件、b文件、c文件、d文件</div>
+                                <div class="ml-5 my-1">(3).工寮 - a文件、b文件</div>
+                            </div>
+                        </div>
+                        <div class="footer">
+                            Copyright © 2020 行政院農業委員會林務局 版權所有
+                        </div>
+                    </div>
+                    <!-- 查詢進度 -->
+                    <div class="tab-pane fade" id="v-pills-progress" role="tabpanel"
+                        aria-labelledby="v-pills-progress-tab">
+                        <div id="step6">
+                            <div class="container-custom1">
+                                <h4 style="text-align: center;margin: 2rem auto;"><b>查詢進度</b></h4>
+                                <div class="d-flex mt-3">
+                                    <div class="rect"></div>
+                                    <h5>請輸入要查詢申請進度的契約基本資料(請選擇任一種方式查詢進度)</h5>
+                                </div>
+                            </div>
+                            <div class="container-custom2">
+                                <form id="register_form" role="form" data-toggle="validator">
+
+                                    <p>方式一 :</p>
+                                    <div class="form-group">
+                                        <label for="list">*申請單號</label>
+                                        <input type="text" class="form-control form-control-sm" id="list"
+                                            placeholder="請輸入要查詢申請進度的申請單號" required="required">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                    <p>方式二 :</p>
+                                    <div class="form-group">
+                                        <label>*承租代表人</label>
+                                        <input type="text" class="form-control form-control-sm" id="name2"
+                                            placeholder="請輸入契約承租代表人的姓名" required="required">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>*身分證字號</label>
+                                        <input type="text" class="form-control form-control-sm" id="idNumber2"
+                                            placeholder="請輸入契約承租代表人的身分證字號" required="required">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                    <div class="form-group mb-5">
+                                        <label>*請輸入驗證碼</label>
+                                        <div id="captcha1">
+                                            <div class="d-flex">
+                                                <input type="text"
+                                                    class="form-control form-control-sm user-text btn-common"
+                                                    id="verification1" name="verification1" placeholder=""
+                                                    required="required">
+                                                <button class="validate btn-common btn btn2 ml-1">check</button>
+                                                <button class="refresh btn-common btn btn2 ml-1">
+                                                    <i class="fas fa-undo-alt"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <p class="wrong info">驗證碼錯誤，請重新輸入!</p>
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="container-custom1">
+                                <div class="d-flex mt-3">
+                                    <div class="rect"></div>
+                                    <h5>注意事項</h5>
+                                </div>
+                                <div class="form-row ml-4 my-1">1.線上申請案件若結案後，僅保留三個月，超過期限請洽管理處或工作站！</div>
+                                <div class="form-row ml-4 my-1">2.臨櫃申請進度查詢僅提供系統上線後(110/05/01)所申請之案件。</div>
+                                <div class="mt-5 clearfix">
+                                    <button type="button" class="btn btn1" onclick="cleanstring()">清除</button>
+                                    <button type="button" class="btn btn1" style="float: right;"
+                                        id="btnNextStep">下一步</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="step7">
+                            <div class="container-custom3">
+                                <h4 style="text-align: center;margin: 2rem auto;"><b>查詢進度</b></h4>
+                                <div class="d-flex mt-3">
+                                    <div class="rect"></div>
+                                    <h5>您所查詢的資料</h5>
+                                </div>
+                                <div class="list form-row">
+                                    <div class="col-lg-4 col-md-6">申請單號：00001</div>
+                                    <div class="col-lg-4 col-md-6">管理處：南投林區管理處</div>
+                                    <div class="col-lg-4 col-md-6">申請類型：續約併辦轉讓、補辦工寮</div>
+                                    <div class="col-lg-4 col-md-6">申請方式：線上申請</div>
+                                    <div class="col-lg-4 col-md-6">申請時間：109/07/09 10:50</div>
+                                    <div class="col-lg-4 col-md-6">承租代表人：盧進興</div>
+                                    <div class="col-lg-4 col-md-6">契約書編號：41110061400420</div>
+                                    <div class="col-lg-4 col-md-6">承租面積：2.950000公頃</div>
+                                    <div class="col-lg-4 col-md-6">承租起迄：109/01/01至117/12/31止</div>
+                                    <div class="col-lg-4 col-md-6">租地位置：埔里事業區第006林班等1筆</div>
+                                    <div class="col-lg-4 col-md-6">承辦人員：台中工作站 王小明</div>
+                                    <div class="col-lg-4 col-md-6">聯絡電話：04-22814026</div>
+                                    <div class="list_title form-row mt-3 mb-3 col-12">
+                                        <div class="rect1"></div>
+                                        <b>續約併辦轉讓</b><span class="ml-5">目前申請進度：現場勘查</span>
+                                    </div>
+                                    <ul class="plan">
+                                        <li id="01" data-step="01" class="done">
+                                            <p>7/12</p>
+                                            <div></div>
+                                            <p>申請受理</p>
+                                        </li>
+                                        <li id="02" data-step="02" class="now">
+                                            <p>7/30</p>
+                                            <div></div>
+                                            <p>現場勘查</p>
+                                        </li>
+                                        <li id="03" data-step="03" class="undone">
+                                            <p>&nbsp;</p>
+                                            <div></div>
+                                            <p>契約用印</p>
+                                        </li>
+                                        <li id="04" data-step="04" class="final undone">
+                                            <p>&nbsp;</p>
+                                            <div></div>
+                                            <p>申請結果</p>
+                                        </li>
+                                    </ul>
+                                    <div class="list_title form-row mt-5 mb-3 col-12">
+                                        <div class="rect1"></div>
+                                        <b>補辦工寮</b><span class="ml-5">目前申請進度：申請結果</span>
+                                    </div>
+                                    <ul class="plan">
+                                        <li id="01" data-step="01" class="done">
+                                            <p>7/12</p>
+                                            <div></div>
+                                            <p>申請受理</p>
+                                        </li>
+                                        <li id="02" data-step="02" class="done">
+                                            <p>7/30</p>
+                                            <div></div>
+                                            <p>現場勘查</p>
+                                        </li>
+                                        <li id="03" data-step="03" class="final now">
+                                            <p>8/16</p>
+                                            <div>核准</div>
+                                            <p style="margin-top: 10px;">申請結果</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="list form-row mt-4">
+                                    <div class="col-lg-4 col-md-6">申請單號：00002</div>
+                                    <div class="col-lg-4 col-md-6">管理處：南投林區管理處</div>
+                                    <div class="col-lg-4 col-md-6">申請類型：續約</div>
+                                    <div class="col-lg-4 col-md-6">申請方式：臨櫃申請</div>
+                                    <div class="col-lg-4 col-md-6">申請時間：109/07/09 10:50</div>
+                                    <div class="col-lg-4 col-md-6">承租代表人：盧進興</div>
+                                    <div class="col-lg-4 col-md-6">契約書編號：41110061400421</div>
+                                    <div class="col-lg-4 col-md-6">承租面積：2.750000公頃</div>
+                                    <div class="col-lg-4 col-md-6">承租起迄：109/01/01至117/12/31止</div>
+                                    <div class="col-lg-4 col-md-6">租地位置：埔里事業區第006林班等1筆</div>
+                                    <div class="col-lg-4 col-md-6">承辦人員：台中工作站 王小明</div>
+                                    <div class="col-lg-4 col-md-6">聯絡電話：04-22814026</div>
+                                    <div class="list_title form-row mt-3 mb-3 col-12">
+                                        <div class="rect1"></div>
+                                        <b>續約</b><span class="ml-5">目前申請進度：退件 (原因:有違規作物需改正)</span>
+                                    </div>
+                                    <ul class="plan">
+                                        <li id="01" data-step="01" class="done">
+                                            <p>7/12</p>
+                                            <div></div>
+                                            <p>申請受理</p>
+                                        </li>
+                                        <li id="02" data-step="02" class="done">
+                                            <p>7/30</p>
+                                            <div></div>
+                                            <p>現場勘查</p>
+                                        </li>
+                                        <li id="03" data-step="03" class="done">
+                                            <p>8/5</p>
+                                            <div></div>
+                                            <p>契約用印</p>
+                                        </li>
+                                        <li id="04" data-step="04" class="final now">
+                                            <p>8/16</p>
+                                            <div>退件</div>
+                                            <p style="margin-top: 10px;">申請結果</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="container-custom3 my-5">
+                                <div class="d-flex">
+                                    <div class="rect"></div>
+                                    <h5>申請進度說明</h5>
+                                </div>
+                                <span>1.申請受理：契約申請已送出，系統將發送簡訊，請利用手機確認契約申請進度。　
+                                    <br>2.現場勘查：請承租代表人與相關工作人員前往租地位置，進行現場會勘。
+                                    <br>3.契約用印：雙方確認訊息無誤後，將訂定契約。
+                                    <br>4.完工查驗：工程完畢，請檢查驗收。
+                                    <br>5.申請結果：此案件完成。</span>
+                            </div>
+                        </div>
+                        <div class="footer">
+                            Copyright © 2020 行政院農業委員會林務局 版權所有
+                        </div>
+                    </div>
+                    <!-- 常見問題 -->
+                    <div class="tab-pane fade" id="v-pills-qa" role="tabpanel" aria-labelledby="v-pills-qa-tab">
+                        <img src="img/faq.png" alt="" class="img-responsive">
+                        <div class="container-custom4">
+                            <h4><b>常見問題</b></h4>
+                            <span>Q： 我已前往工作站辦理續約申請，為什麼查詢進度無法查詢得到目前的辦理進度？<br>
+                                A： 目前［查詢進度］僅提供使用［線上申辦］申辦的契約案件，若您是親自到站臨櫃申請，則請電洽工作站或管理處。<br>
+                                Q： 線上申辦只能申請續約嗎？我能在線上申請繼承或轉讓嗎？<br>
+                                A： 因轉讓、繼承因涉及權利移轉，不提供線上續約申請，請親自到站申請。</span>
+                        </div>
+                        <div class="footer">
+                            Copyright © 2020 行政院農業委員會林務局 版權所有
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+    <script src="js/script.js"></script>
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- sweetAlert -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <!--引用 Validator(表單驗證)-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
+    <!--執行 Validator-->
+    <script>
+        $('#register_form').validator().on('submit', function (e) {
+            if (e.isDefaultPrevented()) { // 未驗證通過 則不處理
+                return;
+            } else { // 通过后，送出表单
+                alert("已送出表單");
+            }
+            e.preventDefault(); // 防止原始 form 提交表单
+        });
+    </script>
+    <!--圖形驗證碼-->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous" defer></script>
+    <script src="js/client_captcha.js" defer></script>
+</body>
+
+</html>
